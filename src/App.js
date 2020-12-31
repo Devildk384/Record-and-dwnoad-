@@ -33,7 +33,7 @@ function App() {
      
      
       captureCamera(function(camera) {
-          video.muted = true;
+
           video.volume = 1;
           video.srcObject = camera;
   
