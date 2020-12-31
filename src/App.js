@@ -2,6 +2,8 @@ import RecordRTC from "recordrtc";
 import './App.css';
 
 function App() {
+     
+
     let videoElm = document.querySelector("video");
     let flipBtn = document.querySelector('#flip-btn');
     var recorder; 
@@ -81,7 +83,7 @@ function App() {
     
 
   return (
-    <div className="App"> 
+    <div className="app"> 
     
     <title>Video Recording</title>
      <h1>Record and download </h1>

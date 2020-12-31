@@ -1,3 +1,80 @@
-.App{
-  margin-left: 40% ;
+#camera-stream{
+  justify-content: center;
+  margin: 20px;
+  padding: 0;
+  width: 50%;
+  position: absolute;
+}
+
+@media only screen and (max-width: 800px) {
+  #camera-stream{
+    justify-content: center;
+    margin: 40px;
+    width: 70%;
+    position: absolute;
+  }
+}
+@media only screen and (max-width: 400px) {
+  #camera-stream{
+    justify-content: center;
+    margin: 40px;
+    width: 80%;
+    position: absolute;
+  }
+}
+
+
+
+
+
+#flip-btn{
+  border-radius: 25px;
+  padding: 10px;
+
+  border: none;
+  z-index: 1000;
+  position: relative;
+  margin: 30px;
+}
+
+
+@media only screen and (max-width: 800px) {
+  #flip-btn{
+    border-radius: 15px;
+    padding: 10px;
+    border: none;
+    z-index: 1000;
+    position: relative;
+    margin: 50px;
+  }
+}
+
+
+
+.app{
+ margin-top: 500px;
+ text-align: center;
+ color: brown;
+}
+
+
+@media only screen and (max-width: 800px) {
+  .app{
+    margin-top: 350px;
+    text-align: center;
+    color: brown;
+   }
+}
+
+@media only screen and (max-width: 400px) {
+  .app{
+    margin-top: 150px;
+    text-align: center;
+    color: brown;
+   }
+}
+
+button{
+  margin: 10px;
+  padding:10px;
 }
