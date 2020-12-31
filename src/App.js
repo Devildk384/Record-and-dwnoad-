@@ -1,23 +1,70 @@
-import logo from './logo.svg';
+import RecordRTC from "recordrtc";
+import Webcam from 'webcam-easy';
 import './App.css';
 
 function App() {
+  var video = document.querySelector("video");
+  var recorder; 
+
+
+  const captureCamera = (callback) => {
+      navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(function(camera) {
+          callback(camera);
+          
+      }).catch(function(error) {
+          alert('Unable to capture your camera. Please check console logs.');
+          console.error(error);
+      });
+      console.log(video);
+  }
+  
+  const  stopRecordingCallback= () =>{
+      video.src = video.srcObject = null;
+      video.muted = false;
+      video.volume = 1;
+      video.src = URL.createObjectURL(recorder.getBlob());
+      
+      recorder.camera.stop();
+      recorder.destroy();
+      recorder = null;
+  }
+  
+
+   const startRecordingCall = () =>{
+     
+     
+      captureCamera(function(camera) {
+          video.muted = true;
+          video.volume = 1;
+          video.srcObject = camera;
+  
+          recorder = RecordRTC(camera, {
+              type: 'video'
+          });
+  
+          recorder.startRecording();
+  
+          recorder.camera = camera;
+         
+      });
+  };
+  
+ const  stopRecording = () => { 
+      recorder.stopRecording(stopRecordingCallback);
+  };
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    
+    <title>Video Recording</title>
+     <h1>Record and download </h1>
+     <br></br>
+ 
+   <button onClick={startRecordingCall}  type="button">Start Recording</button>
+   <button  onClick={stopRecording}   type="button" > stopRecording</button>
+
+     
     </div>
   );
 }
