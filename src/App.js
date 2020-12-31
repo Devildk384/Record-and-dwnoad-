@@ -11,7 +11,7 @@ function App() {
           callback(camera);
           
       }).catch(function(error) {
-          alert('Unable to capture your camera. Please check console logs.');
+          alert('camera not found');
           console.error(error);
       });
       console.log(video);
