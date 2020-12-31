@@ -1,5 +1,4 @@
 import RecordRTC from "recordrtc";
-import Webcam from 'webcam-easy';
 import './App.css';
 
 function App() {
