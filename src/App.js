@@ -3,9 +3,7 @@ import './App.css';
 
 function App() {
     let videoElm = document.querySelector("video");
-    
     let flipBtn = document.querySelector('#flip-btn');
-
     var recorder; 
     
     
@@ -64,7 +62,7 @@ function App() {
     const startRecordingCall = () =>{
         capture(function(stream) {
   
-            videoElm.volume = 0;
+            videoElm.volume = 1;
             videoElm.srcObject = stream;
     
             recorder = RecordRTC(stream, {
@@ -72,7 +70,6 @@ function App() {
             });
     
             recorder.startRecording();
-    
             recorder.stream = stream;
            
         });
